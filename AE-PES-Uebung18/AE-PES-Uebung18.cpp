@@ -4,9 +4,31 @@
 #include "pch.h"
 #include <iostream>
 
+using namespace std;
+
 int main()
 {
-    std::cout << "Hello World!\n"; 
+	const char* separator = ", ";
+	/* This kind of initialisation is required. */
+	int fore = 0;
+	int back = 1;
+
+	/* And the output that belongs to the initialisation. */
+	cout << fore << separator;
+	cout << back << separator;
+
+	for (int i = 0; i <= 7; i++) {
+		// We need to cache the fore number.
+		int temp = fore + back;
+		fore = back;
+		back = temp;
+		// Hier erfolgt die Ausgabe der nächsten fibonaccischen Zahl.
+		cout << temp << separator;
+	}
+
+	cout << "\n";
+	system("pause");
+	return 0;
 }
 
 // Programm ausführen: STRG+F5 oder "Debuggen" > Menü "Ohne Debuggen starten"
